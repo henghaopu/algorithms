@@ -1,5 +1,7 @@
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
+// Time: O(n^2); O(n) when the data is nearly sorted
+// Space: O(1)
 function bubbleSort(arr) {
   let upperBound = arr.length - 1;
   let isSwapped; //// for data that is almost sorted
