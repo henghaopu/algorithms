@@ -1,6 +1,3 @@
-
-
-
 // return the digit in num at the given place value
 // E: (7589, 2) => 5
 function getDigit(num, place) {
@@ -25,3 +22,21 @@ function mostDigits(nums) {
   })
   return maxDigits;
 }
+
+function radixSort(nums) {
+  let maxDigitCount = mostDigits(nums);
+  for (let k = 0; k < maxDigitCount; k++) {
+    // create 10 buckets [[],[],[],[],[],[],[],[],[],[]]
+    let digitBuckets = Array.from({length: 10}, () => []);
+    // put each num in nums into its corresponding bucket
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    // assemble nums from all buckets
+    nums = [].concat(...digitBuckets);
+  }
+  return nums;
+}
+
+// console.log(radixSort([23,345,5467,12,2345,9852]))
