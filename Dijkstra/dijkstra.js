@@ -14,3 +14,17 @@ class WeightedGraph {
     }
   }
 }
+
+// simple priority queue
+class PriorityQueue {
+  constructor() {
+    this.queue = [];
+  }
+  enqueue(val, priority) {
+    this.queue.push({ val, priority });
+    this.queue.sort((a, b) => a.priority - b.priority); // O(n log n)
+  }
+  dequeue() {
+    return this.queue.shift();
+  }
+}
